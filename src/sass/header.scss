@@ -1,0 +1,42 @@
+@import "mixin";
+
+.tab-header {
+    position: relative;
+    width: rem(720);
+    height: rem(272);
+    @include bg-default();
+
+    button {
+        appearance: none;
+        border: none;
+        background: none;
+        outline: none;
+    }
+
+    .tab-btn {
+        width: rem(157);
+        padding-top: rem(73);
+        @include bg-default();
+        position: absolute;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        bottom: rem(-18);
+
+        &.active {
+            opacity: 1;
+        }
+    }
+
+    .equip {
+        left: 46.2%;
+    }
+
+    .material {
+        left: 19.3%;
+    }
+
+    .sim {
+        left: 72.3%;
+    }
+
+}

@@ -1,0 +1,11 @@
+// 720 只是方便计算
+$vw_design: 720;
+$vw_fontsize: 72;
+@function rem($px) {
+    @return ($px / $vw_fontsize ) * 1rem;
+}
+@mixin bg-default() {
+    background-position: center 0;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
