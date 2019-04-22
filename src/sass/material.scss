@@ -1,0 +1,98 @@
+@import 'mixin';
+.material-item {
+    overflow: hidden;
+    .material-item-wrap {
+        &.hidden {
+            display: none;
+        }
+        border-bottom: rem(1) solid #333;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 rem(4) rem(4) rgba(0, 0, 0, 0.4);
+        }
+
+        .item-name {
+            width: rem(180);
+            .icon {
+                display: block;
+                margin: rem(12) auto;
+                width: rem(125);
+                height: rem(129);
+            }
+        }
+
+        .body-content {
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            .inner {
+            }
+            .name {
+                font-size: rem(24);
+            }
+            .ingredient {
+                > span {
+                    margin-right: rem(8);
+                    font-size: rem(24);
+                }
+            }
+        }
+        .drop-down-icon {
+            width: rem(140);
+            height: rem(140);
+            position: relative;
+            img {
+                transition: transform .3s ease-in-out;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: rem(-20);
+                margin-top: rem(-20);
+                width: rem(40);
+                height: rem(40);
+            }
+        }
+        .toggled-body {
+            background: #c0b16c;
+            height: rem(0);
+            overflow: hidden;
+            transition: height 0.3s ease-in-out;
+            padding: 0 rem(20);
+            .outer {
+                white-space: nowrap;
+                height: rem(140);
+                &:after {
+                    display: inline-block;
+                    width: 0;
+                    height: 100%;
+                    visibility: hidden;
+                    vertical-align: middle;
+                    content: '';
+                }
+            }
+            .inner {
+                display: inline-block;
+                vertical-align: middle;
+                white-space: normal;
+            }
+        }
+    }
+    &.toggled {
+        .material-item-wrap {
+            .toggled-body {
+                height: rem(140);
+            }
+            .header {
+            }
+            .drop-down-icon {
+                img {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}

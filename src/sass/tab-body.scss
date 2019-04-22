@@ -1,4 +1,8 @@
 .tab-body {
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    flex: 1;
+    overflow-y: scroll;
     .tab-item {
         position: absolute;
         width: 100%;

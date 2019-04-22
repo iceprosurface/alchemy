@@ -2,23 +2,48 @@
 @import "reset.scss";
 @import "header";
 @import "tab-body";
+@import "material";
+
+.rarity {
+  &.r1 {
+    box-shadow: 0 0 rem(3) goldenrod;
+  }
+  &.r2 {
+    box-shadow: 0 0 rem(3) green;
+  }
+  &.r3 {
+    box-shadow: 0 0 rem(3) blue;
+  }
+  &.r4 {
+    box-shadow: 0 0 rem(3) purple;
+  }
+  &.r5 {
+    box-shadow: 0 0 rem(3) gold;
+  }
+}
 html {
   font-size: ($vw_fontsize / ($vw_design)) * 100vw;
+  height: 100%;
+  overflow: hidden;
+  background: #fff none;
   @media screen and (min-width: 768px) {
     font-size: 76.8px;
+  }
+  body {
+    height: 100%;
+    background: #907e4e;
+    overflow: hidden;
   }
 }
 
 #app {
   max-width: 768px;
   margin: 0 auto;
+  height: 100%;
   .app {
     display: flex;
-    height: 100vh;
+    height: 100%;
     flex-direction: column;
-    .tab-body {
-      flex: 1;
-    }
   }
   .hr {
     height: rem(19);

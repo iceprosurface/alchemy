@@ -1,17 +1,22 @@
-  "name": "",
-  "files": [],
-  "dirs": [{
-    "name": "js",
-    "files": ["*"],
-	"dirs": []
-  },
-  {
-    "name": "img",
+{
+    "name": "",
     "files": [],
-	"dirs": [{
-	  "name": "item",
-	  "files": ["*"],
-	  "dirs": []
-	}]
-  }]
+    "dirs": [
+        {
+            "name": "js",
+            "files": ["*"],
+            "dirs": []
+        },
+        {
+            "name": "img",
+            "files": [],
+            "dirs": [
+                {
+                    "name": "item",
+                    "files": ["*"],
+                    "dirs": []
+                }
+            ]
+        }
+    ]
 }
