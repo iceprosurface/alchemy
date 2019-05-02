@@ -3,6 +3,7 @@
 @import "header";
 @import "tab-body";
 @import "material";
+@import "equip";
 
 .rarity {
   &.r1 {
@@ -31,8 +32,8 @@ html {
   }
   body {
     height: 100%;
-    background: #907e4e;
     overflow: hidden;
+    background: #efefef;
   }
 }
 
@@ -40,6 +41,7 @@ html {
   max-width: 768px;
   margin: 0 auto;
   height: 100%;
+  background: #907e4e;
   .app {
     display: flex;
     height: 100%;

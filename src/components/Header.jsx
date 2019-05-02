@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import equipChs from './../imgs/tabicon/equip_chs.png'
 import equipCht from './../imgs/tabicon/equip_cht.png'
@@ -13,12 +13,15 @@ import serverCht from './../imgs/utils/server_cht.png'
 import headerChs from './../imgs/bgp1_chs.png'
 import headerCht from './../imgs/bgp1_cht.png'
 
-export default class Content extends React.Component {
+import { observer } from 'mobx-react'
+import { store } from '../store/global'
+
+@observer
+export default class Content extends Component {
     constructor(props) {
         super(props)
         this.state = {
             tabSelect: props.defaultTabSelect || 0,
-            lang: props.lang,
             langMap: {
                 chs: serverChs,
                 cht: serverCht,
@@ -61,42 +64,39 @@ export default class Content extends React.Component {
         this.props.updateTab(index)
     }
 
-    setLang(lang) {
-        this.setState({
-            lang: lang,
-        })
-        this.props.updateLang(lang)
-    }
-
     toggleServer() {
-        this.setLang(this.state.lang === 'chs' ? 'cht' : 'chs')
+        const lang = store.lang === 'chs' ? 'cht' : 'chs'
+        store.changeLang(lang)
     }
 
     render() {
-        const { lang, langMap, headerMap } = this.state
-        let buttonList = this.state.tabList.map((_, index) => (
-            <button
-                key={index}
-                className={[
-                    'tab-btn',
-                    index === this.state.tabSelect ? 'active' : '',
-                    _.className,
-                ].join(' ')}
-                onClick={this.setTab.bind(this, index)}
-                style={{ backgroundImage: `url("${_.icon[lang]}")` }}
-            >
-                {_.name}
-            </button>
-        ))
+        const { langMap, headerMap, tabList, tabSelect } = this.state
         return (
             <div
                 className="tab-header"
-                style={{ backgroundImage: `url("${headerMap[lang]}")` }}
+                style={{
+                    backgroundImage: `url("${headerMap[store.lang]}")`,
+                }}
             >
-                {buttonList}
+                {tabList.map((_, index) => (
+                    <button
+                        key={index}
+                        className={[
+                            'tab-btn',
+                            index === tabSelect ? 'active' : '',
+                            _.className,
+                        ].join(' ')}
+                        onClick={this.setTab.bind(this, index)}
+                        style={{
+                            backgroundImage: `url("${_.icon[store.lang]}")`,
+                        }}
+                    >
+                        {_.name}
+                    </button>
+                ))}
                 <img
                     className="server-tab"
-                    src={langMap[lang]}
+                    src={langMap[store.lang]}
                     alt=""
                     onClick={this.toggleServer.bind(this)}
                 />

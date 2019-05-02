@@ -19,8 +19,8 @@
             .icon {
                 display: block;
                 margin: rem(12) auto;
-                width: rem(125);
-                height: rem(129);
+                width: rem(100);
+                height: rem(103.2);
             }
         }
 
@@ -43,7 +43,6 @@
         }
         .drop-down-icon {
             width: rem(140);
-            height: rem(140);
             position: relative;
             img {
                 transition: transform .3s ease-in-out;
@@ -62,6 +61,7 @@
             overflow: hidden;
             transition: height 0.3s ease-in-out;
             padding: 0 rem(20);
+            font-size: rem(20);
             .outer {
                 white-space: nowrap;
                 height: rem(140);
